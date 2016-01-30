@@ -77,15 +77,26 @@ console.log(user);
 
 //create an empty object called methodCollection. 
 
-  //Your code here
+var methodCollection = {};
 
-//Now add two methods (functions that are properties on objects) to your methodCollection object. One called 'alertHello' which alerts 'hello' and another method called logHello which logs 'hello' to the console. 
+//Now add two methods (functions that are properties on objects) to your 
+//methodCollection object. One called 'alertHello' which alerts 'hello' and another 
+//method called logHello which logs 'hello' to the console. 
 
-  //Your code here
+methodCollection.alertHello = function () {
+    alert('hello');
+}
+
+methodCollection.logHello = function () {
+    console.log('hello');
+}
+
+
 
 //Now call your alertHello and logHello methods. 
 
-  //Your code here
+methodCollection.alertHello();
+methodCollection.logHello();
 
 
 
@@ -93,8 +104,38 @@ console.log(user);
 
 
 
-//write a function called voweler that accepts a string, and returns an object with the keys being all the vowels in that string, and the values being how many times that particular vowel was in the string.
+//write a function called voweler that accepts a string, and returns an object 
+//with the keys being all the vowels in that string, and the values being how many 
+//times that particular vowel was in the string.
 //voweler("This is a test") --> {i: 2, a: 1, e: 1};
 
+function voweler(str) {
+    var vowelCount = {
+        a: 0,
+        e: 0,
+        i: 0,
+        o: 0,
+        u: 0
+    };
+    for (var i = 0; i < str.length; i++) {
+        if (str[i] === 'a') {
+            vowelCount.a += 1;
+        }
+        else if (str[i] === 'e') {
+            vowelCount.e += 1;
+        }
+        else if (str[i] === 'i') {
+            vowelCount.i += 1;
+        }
+        else if (str[i] === 'o') {
+            vowelCount.o += 1;
+        }
+        else if (str[i] === 'u') {
+            vowelCount.u += 1;
+        }
+    }
+    return vowelCount;
+}
 
+voweler('aeeiiioou');
 
