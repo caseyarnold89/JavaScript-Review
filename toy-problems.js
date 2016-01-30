@@ -33,7 +33,7 @@ flatten([1, 2, [3, [4], 5, 6], 7]) // [1, 2, 3, 4, 5, 6, 7]
 */
 var exDimArr = [1, 2, [3, [4], 5, 6], 7];
 
-function flatten (cArr) {
+function flatten (cArr) { //recursion, have flatten call itself
     for (var i = 0; i < cArr.length; i++) {
         if (cArr[i].constructor === Array) {
                
@@ -140,6 +140,7 @@ function multSum(num) {
     return sumMult;
 }
 
+multSum(1000);
 /*
 
 Remove duplicate characters in a given string keeping only the first occurrences. 
@@ -147,7 +148,18 @@ For example, if the input is ‘tree traversal’ the output will be "tre avsl".
 
 */
 
+function removeChar(str) {
+    var flag = false;
+    var newStr = '';
+    for (var i = 0; i < str.length; i++) {
+        if (newStr.indexOf(str[i]) === -1) {
+            newStr += str[i];
+        }
+    }
+    return newStr;
+}
 
+removeChar('tree traversal');
 
 /*
 Write a sum method which will work properly when invoked using either syntax below.
@@ -156,3 +168,14 @@ console.log(sum(2,3));   // Outputs 5
 console.log(sum(2)(3));  // Outputs 5
 
 */
+
+function sumFn (a,b) {
+    if (b!==undefined) {
+        return a+b;
+    }
+    else {
+        return function(b) {
+            return a+b;
+        }
+    }
+}
