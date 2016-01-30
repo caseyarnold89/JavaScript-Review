@@ -64,11 +64,20 @@ checkRand(randomArray);
 
 
 
-//Create a copy of first and save it into second. Then, add 6 and 7 to the end of second. When you run this, first should be just [1,2,3,4,5] and second will be [1,2,3,4,5,6,7] if you created your copy correctly.
+//Create a copy of first and save it into second. Then, add 6 and 7 to the end of second. When you run this, 
+//first should be just [1,2,3,4,5] and second will be [1,2,3,4,5,6,7] if you created your copy correctly.
 var first = [1,2,3,4,5];
 var second;
 
-  //code here
+function copyAdd (arr1, arr2) {
+    for (var i in arr1) {
+        arr2[i] = arr1[i];
+    }
+    arr2.push(6, 7);
+    return arr2;
+}
+
+copyAdd(first, second);
 
 alert(first) //[1,2,3,4,5];
 alert(second) //[1,2,3,4,5,6,7];
@@ -82,7 +91,20 @@ alert(second) //[1,2,3,4,5,6,7];
 //write a function called longest that takes in our sentence variable, and returns the longest word in that sentence.
 var sentence = "Dev Mountain is the best"
 
-  //code here
+function longestWord(sent) {
+    var words = sent.split(" ");
+    var longest = 0;
+    var word;
+    for (var i = 0; i < words.length; i++) {
+        if (longest < words[i].length) {
+            longest = words[i].length;
+            word = words[i];
+        }
+    }
+    return word;
+}
+
+longestWord(sentence);
 
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
@@ -93,13 +115,36 @@ var sentence = "Dev Mountain is the best"
 var myPoem = 'What is a jQuery but a misunderstood object?'
 //What is a jQuery but a misunderstood object? --> What Is A JQuery But A Misunderstood Object?
 
-  //code here
+function capitalize(sent) {
+    var words = sent.split(' ');
+    for (var i = 0; i < words.length; i++) {
+        var first = words[i].charAt(0).toUpperCase();
+        var rest = words[i].substring(1);
+        words[i] = first + rest;
+    }
+    return words.join(' ');
+}
 
-
+capitalize(myPoem);
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
 
 
 var theOdyssey = "function expression or function declaration? Tis an obvious choice";
-//Write a function called vowelCounter that takes in a string (theOdyssey) and returns how many vowels are in that string.
+//Write a function called vowelCounter that takes in a string (theOdyssey) and returns 
+//how many vowels are in that string.
+
+function vowelCounter(str) {
+    var vowelCount = 0;
+    for (var i = 0; i < str.length; i++) {
+        if (str[i] === 'a' || str[i] === 'e' || str[i] === 'i' || str[i] === 'o' || str[i] === 'u') {
+            vowelCount += 1;
+        }
+    }
+    return vowelCount;
+}
+
+var sampleStr = 'aeiouss'
+
+vowelCounter(sampleStr);
