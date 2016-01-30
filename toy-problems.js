@@ -34,10 +34,9 @@ flatten([1, 2, [3, [4], 5, 6], 7]) // [1, 2, 3, 4, 5, 6, 7]
 var exDimArr = [1, 2, [3, [4], 5, 6], 7];
 
 function flatten (cArr) { //recursion, have flatten call itself
+    var flatArr = [];
     for (var i = 0; i < cArr.length; i++) {
-        if (cArr[i].constructor === Array) {
-               
-        }
+        flat = flat.concat(cArr[i]);
     }
 }
 
@@ -149,7 +148,6 @@ For example, if the input is ‘tree traversal’ the output will be "tre avsl".
 */
 
 function removeChar(str) {
-    var flag = false;
     var newStr = '';
     for (var i = 0; i < str.length; i++) {
         if (newStr.indexOf(str[i]) === -1) {
