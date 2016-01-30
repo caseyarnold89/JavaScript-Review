@@ -36,8 +36,14 @@ var exDimArr = [1, 2, [3, [4], 5, 6], 7];
 function flatten (cArr) { //recursion, have flatten call itself
     var flatArr = [];
     for (var i = 0; i < cArr.length; i++) {
-        flat = flat.concat(cArr[i]);
+        if (cArr[i].constructor === Array) {
+            flatArr = flatArr.concat(flatten(cArr[i]));
+        }
+        else {
+            flatArr.push(cArr[i]);
+        }
     }
+    return flatArr;
 }
 
 flatten(exDimArr);
@@ -49,10 +55,6 @@ Given an array [a1, a2, ..., aN, b1, b2, ..., bN, c1, c2, ..., cN] convert it to
 
 */
 
-function organizeArr(messArr) {
-    
-    
-}
 
 /*
 
